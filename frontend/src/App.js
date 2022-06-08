@@ -1,4 +1,4 @@
-import { Header, Form } from './components';
+import { Header, Form, UserList } from './components';
 import './App.css';
 
 function App() {
@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <Header />
       <Form />
+      <UserList />
     </div>
   );
 }

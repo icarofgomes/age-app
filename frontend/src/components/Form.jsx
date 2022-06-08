@@ -22,8 +22,7 @@ class Form extends Component {
         });
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
+    handleSubmit() {;
         const data = {
             username: this.state.name,
             birth: this.state.birth,
@@ -35,7 +34,7 @@ class Form extends Component {
         return(
             <form onSubmit={ this.handleSubmit }>
                 <label htmlFor="">
-                    Digite o seu nome
+                    Digite o seu nome:
                     <input
                         type="text"
                         value={ this.state.name }
@@ -45,6 +44,7 @@ class Form extends Component {
                     />
                 </label>
                 <label htmlFor="">
+                    Digite a data de nascimento:
                     <input
                         type="date"
                         value={ this.state.birth }
