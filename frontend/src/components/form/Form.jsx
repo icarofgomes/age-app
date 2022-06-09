@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import { API_URL } from '../api';
+import { API_URL } from '../../api';
+import './form.css';
 
 class Form extends Component {
     constructor() {
@@ -34,25 +35,32 @@ class Form extends Component {
         return(
             <form onSubmit={ this.handleSubmit }>
                 <label htmlFor="">
-                    Digite o seu nome:
+                    <span>Nome</span>
                     <input
                         type="text"
                         value={ this.state.name }
                         onChange={ this.handleChange }
                         name="name"
                         required
+                        maxLength={20}
+                        className="simpleInput"
                     />
                 </label>
                 <label htmlFor="">
-                    Digite a data de nascimento:
+                    <span>Data de nascimento</span>
                     <input
                         type="date"
                         value={ this.state.birth }
                         onChange={ this.handleChange }
                         name="birth"
+                        className="simpleInput"
                     />
                 </label>
-                <input type="submit" />
+                <input
+                    type="submit"
+                    className='submitInput'
+                    value={"Enviar"}
+                />
             </form>
         )
     }

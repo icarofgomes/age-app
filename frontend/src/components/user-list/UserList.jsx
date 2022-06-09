@@ -1,16 +1,17 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { API_URL } from '../api';
+import { API_URL } from '../../api';
+import CardBox from '../card-box/CardBox';
+import './user-list.css';
 
 function UserList() {
 
-    const [posts, setPosts] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        console.log('Passou aqui!')
         axios.get(`${API_URL}/users`)
         .then((response) => {
-            setPosts(response.data)
+            setUsers(response.data)
         })
         .catch((response) => {
             console.log(response)
@@ -19,14 +20,10 @@ function UserList() {
 
     return(
         <div>
-            { posts.map((post, key) => {
-                return (
-                    <div>
-                        Nome: { post.username}
-                        Idade: { post.age}
-                    </div>
+            { users.map((user, i) => (
+                    <CardBox key={ i } user = { user } />
                 )
-            })}
+            )}
         </div>
     )
 }
