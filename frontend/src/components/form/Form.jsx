@@ -1,69 +1,57 @@
 import axios from 'axios';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { API_URL } from '../../api';
 import './form.css';
 
-class Form extends Component {
-    constructor() {
-        super();
+function Form() {
+    const [data, setData] = useState({
+        username: '',
+        birth: '',
+    })
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-
-        this.state = {
-            name: '',
-            birth: '',
-        };
+    const handleChange = ({ target: { value, name }}) => {
+        setData({
+            ...data,
+            [name]: value,
+        })
     }
 
-    handleChange({ target }) {
-        const { name } = target;
-        this.setState({
-            [name]: target.value,
-        });
-    }
-
-    handleSubmit() {;
-        const data = {
-            username: this.state.name,
-            birth: this.state.birth,
-        }
+    const handleSubmit = () => {
         axios.post(`${API_URL}/users`, data);
     }
 
-    render() {
-        return(
-            <form onSubmit={ this.handleSubmit }>
-                <label htmlFor="">
-                    <span>Nome</span>
-                    <input
-                        type="text"
-                        value={ this.state.name }
-                        onChange={ this.handleChange }
-                        name="name"
-                        required
-                        maxLength={20}
-                        className="simpleInput"
-                    />
-                </label>
-                <label htmlFor="">
-                    <span>Data de nascimento</span>
-                    <input
-                        type="date"
-                        value={ this.state.birth }
-                        onChange={ this.handleChange }
-                        name="birth"
-                        className="simpleInput"
-                    />
-                </label>
+    return(
+        <form onSubmit={ handleSubmit }>
+            <label htmlFor="">
+                <span>Nome</span>
                 <input
-                    type="submit"
-                    className='submitInput'
-                    value={"Enviar"}
+                    type="text"
+                    value={ data.username }
+                    onChange={ handleChange }
+                    name="username"
+                    required
+                    maxLength={20}
+                    className="simpleInput"
+                    pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
                 />
-            </form>
-        )
-    }
+            </label>
+            <label htmlFor="">
+                <span>Data de nascimento</span>
+                <input
+                    type="date"
+                    value={ data.birth }
+                    onChange={ handleChange }
+                    name="birth"
+                    className="simpleInput"
+                />
+            </label>
+            <input
+                type="submit"
+                className='submitInput'
+                value={"Enviar"}
+            />
+        </form>
+    )
 }
 
 export default Form;

@@ -17,6 +17,12 @@ form .simpleInput {
     width: 50%;
     color: rgba(140, 43, 230);
     font-weight: 600;
+    padding: 0.25rem;
+}
+
+form span {
+    display: flex;
+    align-items: center;
 }
 
 form .simpleInput:focus {
@@ -31,10 +37,20 @@ form .submitInput {
     border: none;
     padding: 0.5rem;
     width: 30%;
-    margin: 0.25rem auto;
+    margin: 0.5rem auto;
     border-radius: 5px;
 }
 
 form .submitInput:hover {
     background-color: rgba(140, 43, 230);
+}
+
+@media (min-width: 62em) {
+    form label {
+        flex-direction: column;
+        align-items: center;
+        text-align: start;
+        width: 45%;
+        margin: 1rem auto;
+    }
 }
