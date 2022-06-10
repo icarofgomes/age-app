@@ -1,5 +1,15 @@
 # Instalação
 
+## Antes da instaçao
+
+### Clone do projeto
+
+- Em um diretório de sua preferência, use o comando para clonar o projeto
+
+    ```
+    git clone git@github.com:icarofgomes/age-app.git
+- Altere para a pasta age-app
+
 ## Instalação passo a passo
 
 
