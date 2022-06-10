@@ -20,6 +20,10 @@ form .simpleInput {
     padding: 0.25rem;
 }
 
+form .simpleInput::placeholder {
+    color: rgba(140, 43, 230);
+}
+
 form span {
     display: flex;
     align-items: center;

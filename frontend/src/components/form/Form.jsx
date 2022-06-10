@@ -29,6 +29,7 @@ function Form() {
                     value={ data.username }
                     onChange={ handleChange }
                     name="username"
+                    placeholder="Digite um nome"
                     required
                     maxLength={20}
                     className="simpleInput"

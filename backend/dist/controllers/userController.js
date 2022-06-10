@@ -12,14 +12,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 const userService_1 = __importDefault(require("../services/userService"));
-const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const express_rescue_1 = __importDefault(require("express-rescue"));
+const create = (0, express_rescue_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userData = yield userService_1.default.create(req.body);
     res.status(201).json(userData);
-});
-const getAll = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+}));
+const getAll = (0, express_rescue_1.default)((_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const usersData = yield userService_1.default.getAll();
     res.status(200).json(usersData);
-});
+}));
 module.exports = {
     create,
     getAll,

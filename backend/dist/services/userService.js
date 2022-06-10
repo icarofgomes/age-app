@@ -12,6 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 const userModel_1 = __importDefault(require("../models/userModel"));
+const USER_CONNECTION_ERROR = new Error();
+USER_CONNECTION_ERROR.message = '500-Server error';
 const getAge = (birth) => {
     const today = new Date();
     const birthDate = new Date(birth);
@@ -24,10 +26,16 @@ const getAge = (birth) => {
 };
 const create = (user) => __awaiter(void 0, void 0, void 0, function* () {
     const newUser = yield userModel_1.default.create(user);
+    if (!newUser) {
+        throw USER_CONNECTION_ERROR;
+    }
     return newUser;
 });
 const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
     const users = yield userModel_1.default.getAll();
+    if (!users) {
+        throw USER_CONNECTION_ERROR;
+    }
     const usersWithAge = users.map((user) => {
         const age = getAge(user.birth);
         return {

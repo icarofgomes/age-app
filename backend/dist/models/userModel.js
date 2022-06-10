@@ -14,14 +14,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 const connection_1 = __importDefault(require("./connection"));
 const create = (user) => __awaiter(void 0, void 0, void 0, function* () {
     const { username, birth } = user;
-    const [result] = yield connection_1.default.execute('INSERT INTO users(username, birth) VALUES (?, ?)', [username, birth]);
-    const { insertId: id } = result;
-    const insertedUser = { id, username, birth };
-    return insertedUser;
+    try {
+        const [result] = yield connection_1.default.execute('INSERT INTO users(username, birth) VALUES (?, ?)', [username, birth]);
+        const { insertId: id } = result;
+        const insertedUser = { id, username, birth };
+        return insertedUser;
+    }
+    catch (e) {
+        return null;
+    }
 });
 const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
-    const [data] = yield connection_1.default.execute('SELECT * FROM users');
-    return data;
+    try {
+        const [data] = yield connection_1.default.execute('SELECT * FROM users');
+        return data;
+    }
+    catch (e) {
+        return null;
+    }
 });
 module.exports = {
     create,
