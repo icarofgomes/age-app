@@ -5,12 +5,24 @@
 
 ### Ativar o banco de dados:
 - Para ativar o MySQL no seu sistema operacional:
-    - No windows:
-    - No Linux:
+    - No Linux: No terminal digite
+        ```
+        sudo systemctl start mysql
     - No Docker:
+        ```
+        docker container run --name mysql -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql
+        
+        Obs 1: Executar o comando acima caso seja a primeira vez a executar o programa.
+        - caso já tenha executado e queria retormar o serviços:
+            docker container start mysql
+        - caso querida parar o serviço
+            docker container stop mysql
+
+        Obs 2: O campo MYSQL_ROOT_PASSWORD=password pode ser alterado para a senha de sua preferência, atenção na hora de configurar o arquivo .env no backend.
+
 - Copiar a Query presente na raiz do projeto, e executar no MySQL.
     - Pode ser executado em algum gerenciador como por exemplo o MySQL Workbench.
-    - Obs: A query já inclui alguns dados, apenas como referência.
+    - Obs: O arquivo possui alguns dados comentados, apenas como referência, caso desejar criar o Banco de Dados já populado.
 
 ###  Configurar e ativar o Backend:
 
@@ -47,7 +59,7 @@ exemplo para configurar o ambiente com as informações do banco de dados.
     - Existe um componente na página que se comunica com o backend para buscar as informações de todas as pessoas e retorna o nome e a idade de cada pessoa em um card.
     - Tanto o nome quanto a data de nascimento é obrigatório para o envio formulário.
 - Em caso do banco de dados estar vazio é retornada uma mensagem.
-- No caso de problema de comunicação com o banco de dados o usuário é redirecionado a uma página de erro.
+- No caso de problema de comunicação com o banco de dados ou algum erro com o servidor é retonarda uma mensagem.
 
 ## Informações sobre o Frontend
 

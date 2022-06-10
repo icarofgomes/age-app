@@ -13,5 +13,4 @@ app.use(cors());
 app.use('/users', routes_1.userRouter);
 app.use(middlerares_1.joiError);
 app.use(middlerares_1.domainError);
-app.use(middlerares_1.serverError);
 exports.default = app;
