@@ -1,0 +1,61 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 1rem auto;
+}
+
+form label {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.25rem 0;
+    color: rgba(140, 43, 230);
+    font-weight: 600;
+}
+
+form .simpleInput {
+    width: 50%;
+    color: rgba(140, 43, 230);
+    font-weight: 600;
+    padding: 0.25rem;
+}
+
+form .simpleInput::placeholder {
+    color: rgba(140, 43, 230);
+}
+
+form span {
+    display: flex;
+    align-items: center;
+}
+
+form .simpleInput:focus {
+    box-shadow: 1px 1px 5px 0px rgba(140, 43, 230);
+}
+
+form .submitInput {
+    background-color: #f2f2f2;
+    color: rgba(140, 43, 230);
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    padding: 0.5rem;
+    width: 30%;
+    margin: 0.5rem auto;
+    border-radius: 5px;
+}
+
+form .submitInput:hover {
+    background-color: rgba(140, 43, 230);
+    color: #f2f2f2;
+}
+
+@media (min-width: 62em) {
+    form label {
+        flex-direction: column;
+        align-items: center;
+        text-align: start;
+        width: 45%;
+        margin: 1rem auto;
+    }
+}

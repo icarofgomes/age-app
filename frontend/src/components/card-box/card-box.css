@@ -1,0 +1,23 @@
+.cardBox {
+    background-color: rgba(140, 43, 230);
+    width: 80%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(242,242,242,0.2); 
+    box-shadow: 1px 1px 5px 0px rgba(242,242,242,0.2);
+}
+
+@media (min-width: 48em) {
+    .cardBox {
+        width: 60%;
+        background-color: blueviolet;
+    }
+}
+
+@media (min-width: 62em) {
+    .cardBox {
+        width: 35%;
+        background-color: blueviolet;
+    }
+}

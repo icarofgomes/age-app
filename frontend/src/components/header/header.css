@@ -1,0 +1,8 @@
+header {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(140, 43, 230);
+    font-weight: 600;;
+}
